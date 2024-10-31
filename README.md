@@ -51,8 +51,8 @@ The SDEX Razor Tools extends existing Stellar .NET projects by providing essenti
 
 ## **How SDEX Razor Tools Complements Previous Projects**
 
-### **1. Integration with Stellar Razor Tools (Pakana)**
-The **Stellar Razor Tools (Pakana)** provides a set of **general-purpose Razor components** for interacting with the Stellar network, such as managing accounts, assets, and payments.
+### **1. Integration with Stellar Razor Tools**
+The **Stellar Razor Tools** provides a set of **general-purpose Razor components** for interacting with the Stellar network, such as managing accounts, assets, and payments.
 
 - **Trading Functionality:** The SDEX Razor Tools adds a **trading-focused layer** to this foundation, allowing developers to build complete portfolio management and trading apps.
 - **Portfolio Management:** Integrating SDEX components with Pakana’s account management tools provides a **holistic view** of a user’s assets and trading history.
