@@ -1,6 +1,6 @@
 # SDEX Razor Tools
 
-This project aims to developo a powerful suite of Razor View Components designed for .NET developers to easily integrate **Stellar Decentralized Exchange (SDEX)** features into their applications. The **SDEX Razor Tools** provides end-to-end support for trading, portfolio management, and secure transaction handling, allowing developers to create comprehensive Stellar-based financial applications.
+This project aims to develop a powerful suite of Razor View Components designed for .NET developers to easily integrate **Stellar Decentralized Exchange (SDEX)** features into their applications. The **SDEX Razor Tools** provides end-to-end support for trading, portfolio management, and secure transaction handling, allowing developers to create comprehensive Stellar-based financial applications.
 
 ## **Product Overview**
 
