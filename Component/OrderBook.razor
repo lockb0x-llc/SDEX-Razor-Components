@@ -1,0 +1,114 @@
+﻿@page "/orderbook"
+
+<style>
+
+    h3 {
+        color: dimgrey; /* Light color for heading */
+    }
+
+    .order-book {
+        display: flex;
+        justify-content: center;
+        margin-top: 20px;
+        text-align: left;
+    }
+
+    .order-book-column {
+        width: 40%;
+        max-height: 300px;
+    }
+
+    .order-item {
+        display: flex;
+        justify-content: space-between;
+        padding: 2px 2px; /* Darker border for order items */
+        font-size: 8pt;
+        /* Dark background for order items */
+    }
+
+        .order-item span {
+            font-weight: bold;
+            color: #ffffff; /* Light text color for item text */
+        }
+
+    .order-book.buy-order {
+        color: green; /* Green color for buy orders */
+    }
+
+    .order-book.sell-order {
+        color: red; /* Red color for sell orders */
+    }
+
+    .header {
+        font-size: small;
+        display: flex;
+        justify-content: center; /* Centers the titles horizontally */
+        align-items: center; /* Aligns them vertically */
+        margin-bottom: 10px;
+    }
+
+        .header span {
+            display: flex;
+            justify-content: space-between;
+            width: 150px; /* Ensures enough space for both titles */
+            color: #bbb; /* Lighter text color for header */
+        }
+
+            .header span span {
+                flex-basis: 30%; /* Ensures the titles take up equal space */
+                text-align: center; /* Centers each title */
+            }
+
+
+    .buy-order {
+        color: green !important; /* Green color for buy orders */
+        text-align: right;
+        width: 25%;
+    }
+
+    .sell-order {
+        color: red !important; /* Red color for sell orders */
+        text-align: left;
+        width: 25%;
+    }
+
+</style>
+
+<div class="container">
+    <div class="header">
+        <span>
+            <span>Amount(XLM)</span>
+            <span>Bid(USD)</span>
+        </span>
+        <span>
+            <span>Ask(USD)</span>
+            <span>Amount(XLM)</span>
+        </span>
+    </div>
+    <div class="order-book">
+        <div class="order-book-column">
+            <div id="buyOrders"></div>
+        </div>
+        <div class="order-book-column">
+            <div id="sellOrders"></div>
+        </div>
+    </div>
+</div>
+
+@code {
+    [Inject]
+    private IJSRuntime JSRuntime { get; set; }
+
+    protected override async Task OnAfterRenderAsync(bool firstRender)
+    {
+        if (firstRender)
+        {
+            // Invoke the JavaScript function to start fetching order book data
+            await JSRuntime.InvokeVoidAsync("fetchOrderBook");
+        }
+    }
+}
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/stellar-sdk/13.0.0/stellar-sdk.min.js"></script>
+<script src="./_content/PakanaRazorSDEX/js/orderBook.js"></script>
+<script src="./_content/PakanaRazorSDEX/js/global.js"></script>

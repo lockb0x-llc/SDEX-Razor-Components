@@ -1,0 +1,69 @@
+﻿<Project Sdk="Microsoft.NET.Sdk.Razor">
+
+	<PropertyGroup>
+		<TargetFramework>net8.0</TargetFramework>
+		<Nullable>enable</Nullable>
+		<ImplicitUsings>enable</ImplicitUsings>
+		<Version>0.0.4</Version>
+		<GeneratePackageOnBuild>True</GeneratePackageOnBuild>
+		<IsPackable>true</IsPackable>
+		<AddRazorSupportForMvc>true</AddRazorSupportForMvc>
+		<GenerateMvcApplicationPartsAssemblyAttributes>true</GenerateMvcApplicationPartsAssemblyAttributes>
+		<RazorCompileOnBuild>true</RazorCompileOnBuild>
+		<IncludeRazorContentInPack>true</IncludeRazorContentInPack>
+		<GenerateEmbeddedFilesManifest>true</GenerateEmbeddedFilesManifest>
+		<EnableDefaultRazorGenerateItems>true</EnableDefaultRazorGenerateItems>
+		<NoDefaultLaunchSettingsFile>true</NoDefaultLaunchSettingsFile>
+		<StaticWebAssetProjectMode>Default</StaticWebAssetProjectMode>
+		<Title>Pakana Razor SDEX Components</Title>
+		<Authors>Josh Kassabian, Steven Tomlinson</Authors>
+		<Company>Pakana</Company>
+		<Description>The Pakana Razor SDEX Components project provides a set of powerful and customizable ASP.NET Razor components for integrating Stellar blockchain SDEX functionality into your web applications. These components aim to simplify the integration process, offering a user-friendly interface for Stellar Dex Market Information, Orderbook Operations, Transaction History and Visual Aids.</Description>
+		<Copyright>MIT</Copyright>
+		<PackageProjectUrl>https://pakanacomponents.com</PackageProjectUrl>
+		<RepositoryType>git</RepositoryType>
+		<RepositoryUrl>https://github.com/lockb0x-llc/SDEX-Razor-Components</RepositoryUrl>
+		<PackageReadmeFile>README.md</PackageReadmeFile>
+		<PackageTags>Stellar;Pakana;Blockchain;Opensource;DEX;Components;Crypto;DLT;Free</PackageTags>
+		<PackageReleaseNotes>Release Notes: NuGet Package v0.0.4
+
+Summary
+
+This release represents the pre-release of user interface (UI), Package Information and Fuctioning Mainnet Stellar DEX Components. We will be upgrading versions frequently over the next few weeks as we complete documentation and make improvements.</PackageReleaseNotes>
+		<PackageIcon>PKRZSDEX.png</PackageIcon>
+		<PackageLicenseExpression>MIT</PackageLicenseExpression>
+	</PropertyGroup>
+
+	<ItemGroup>
+	  <None Include="..\..\..\..\OneDrive\Desktop\SDEXPROJECT\PKRZSDEX.png">
+	    <Pack>True</Pack>
+	    <PackagePath>\</PackagePath>
+	  </None>
+	  <None Include="C:\Users\inked\source\repos\PSDEXDEMOTEST\PSDEXDEMOTEST\README.md" Pack="true" PackagePath="\" />
+	</ItemGroup>
+
+
+	<ItemGroup>
+		<SupportedPlatform Include="browser" />
+	</ItemGroup>
+
+	<ItemGroup>
+		<PackageReference Include="Microsoft.AspNetCore.Components.Web" Version="8.0.11" />
+	</ItemGroup>
+
+	<ItemGroup>
+		<Content Update="wwwroot\**\*.js">
+			<CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+		</Content>
+		<Content Update="Component\**\*.razor">
+			<CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+		</Content>
+		<Compile Update="ExampleJsInterop.cs">
+			<CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+		</Compile>
+		<Content Update="_Imports.razor">
+			<CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+		</Content>
+	</ItemGroup>
+
+</Project>

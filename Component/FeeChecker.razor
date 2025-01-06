@@ -1,0 +1,79 @@
+﻿<style>
+
+    h2, h3 {
+        font-size: 12px; /* Smaller font size for headings */
+        margin-top: 8px;
+        font-weight: normal;
+        color: #ffcc00; /* Light color for headings */
+    }
+
+    .input-group {
+        margin-bottom: 15px;
+    }
+
+    label {
+        font-weight: bold;
+        font-size: 10px; /* Smaller font size for labels */
+        color: #bbb; /* Lighter color for labels */
+    }
+
+    input[type="number"], button {
+        padding: 8px;
+        font-size: 12px; /* Smaller font size for inputs and button */
+        width: 100%;
+        margin-top: 5px;
+        background: #2a2a2a; /* Dark input fields */
+        color: #ffffff; /* Light text in input fields */
+        border: 1px solid #444; /* Dark border for inputs */
+    }
+
+    button {
+        background-color: #ffcc00; /* Light button background */
+        color: black;
+        border: none;
+    }
+
+        button:hover {
+            background-color: #e6b800; /* Hover effect for button */
+        }
+
+    span {
+        font-size: 10px; /* Smaller font size for the results */
+        color: #bbb; /* Lighter color for span text */
+    }
+</style>
+
+<div class="container">
+    <h2>Stellar Transaction Fee Calculator</h2>
+    <div class="input-group">
+        <label for="offerPrice">Offer Price (XLM):</label>
+        <input type="number" id="offerPrice" placeholder="Enter offer price in XLM" />
+    </div>
+    <div class="input-group">
+        <label for="offerAmount">Offer Amount (XLM):</label>
+        <input type="number" id="offerAmount" placeholder="Enter offer amount in XLM" />
+    </div>
+    <button id="calculateFeeBtn">Calculate Fee</button>
+
+    <h3>Total Estimated Fee (Stroops): <span id="feeResult">-</span></h3>
+    <h3>Total Estimated Fee (XLM): <span id="feeXLMResult">-</span></h3>
+    <h3>Total Fee in USD: <span id="feeUSDResult">-</span></h3>
+</div>
+
+@code {
+    [Inject] IJSRuntime JS { get; set; }
+
+    protected override async Task OnAfterRenderAsync(bool firstRender)
+    {
+        if (firstRender)
+        {
+            // Call the initializeChart function in the external JavaScript file
+            await JS.InvokeVoidAsync("calculateFeeBtn");
+        }
+    }
+}
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/stellar-sdk/13.0.0/stellar-sdk.min.js"></script>
+<script src="./_content/PakanaRazorSDEX/js/feeChecker.js"></script>
+<script src="./_content/PakanaRazorSDEX/js/global.js"></script>

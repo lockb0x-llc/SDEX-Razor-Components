@@ -1,0 +1,26 @@
+﻿<div class="container">
+    <h2>TX History</h2>
+    <form id="transactionForm">
+        <label for="publicKey">Your Public Key:</label>
+        <input type="text" id="publicKey" name="publicKey" placeholder="Your Stellar public key" required>
+        <button type="submit">Fetch Transactions</button>
+    </form>
+    <div class="filters">
+        <select id="sortOrder">
+            <option value="desc">Descending</option>
+            <option value="asc">Ascending</option>
+        </select>
+    </div>
+    <p id="message"></p>
+    <div id="transactionList" class="transaction-list"></div>
+</div>
+
+@code {
+    string publicKey { set; get; } = "";
+    string transactionList { set; get; } = "";
+
+}
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/stellar-sdk/13.0.0/stellar-sdk.min.js"></script>
+<script src="./_content/PakanaRazorSDEX/js/txHistory.js"></script>
+<script src="./_content/PakanaRazorSDEX/js/global.js"></script>

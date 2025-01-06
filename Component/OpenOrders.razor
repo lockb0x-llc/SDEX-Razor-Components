@@ -1,0 +1,89 @@
+﻿<style>
+
+    h1 {
+        text-align: center;
+        color: #ffcc00;
+    }
+
+    table {
+        width: 100%;
+        border-collapse: collapse;
+        margin-bottom: 15px;
+    }
+
+
+        table th, table td {
+            border-top: 1px solid #444; /* Top border only */
+            border-bottom: 1px solid #444; /* Bottom border only */
+            padding: 8px;
+            text-align: center;
+            font-size: 14px;
+            background: #2a2a2a;
+            color: #ffffff;
+        }
+
+        table td {
+            border-left: none; /* Remove vertical left border */
+            border-right: none; /* Remove vertical right border */
+        }
+
+        table th {
+            border-left: none; /* Remove vertical left border for th */
+            border-right: none; /* Remove vertical right border for th */
+        }
+
+
+    button {
+        background: #ffcc00;
+        color: #000000;
+        border: none;
+        padding: 8px 12px;
+        border-radius: 4px;
+        cursor: pointer;
+    }
+
+        button:hover {
+            background: #e6b800;
+        }
+
+        button.cancel {
+            background: #ff5252;
+            color: #ffffff;
+        }
+
+            button.cancel:hover {
+                background: #ff2b2b;
+            }
+
+        button[disabled] {
+            background: #444;
+            color: #888;
+            cursor: not-allowed;
+        }
+
+    #message {
+        text-align: center;
+        margin-top: 10px;
+        font-size: 14px;
+        color: #ff5555;
+    }
+</style>
+
+<div class="container">
+    <h2>Open Orders</h2>
+    <label for="secretKeyInput">Enter Your Secret Key:</label>
+    <input type="password" id="secretKeyInput" placeholder="Secret Key" />
+    <button id="submitKeyButton">Submit</button>
+    <div id="ordersTable">
+        <p>Loading open orders...</p>
+    </div>
+    <p id="message"></p>
+</div>
+
+@code {
+    string secretKeyInput { set; get; } = "";
+}
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/stellar-sdk/13.0.0/stellar-sdk.min.js"></script>
+<script src="./_content/PakanaRazorSDEX/js/openOrders.html"></script>
+<script src="./_content/PakanaRazorSDEX/js/global.js"></script>
