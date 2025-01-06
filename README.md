@@ -6,6 +6,12 @@ This project aims to develop a powerful suite of Razor View Components designed 
 
 The SDEX Razor Tools extends existing Stellar .NET projects by providing essential components for building trading and portfolio management apps on Stellar, optimized for secure integration and ease of use in the .NET environment.
 
+## **NuGet Package**
+
+The PakanaRazorSDEX NuGet Package v0.0.4 is now available at NuGet.org
+
+[PakanaRazorSDEX NuGet Package v0.0.4](https://www.nuget.org/packages/PakanaRazorSDEX)
+
 ---
 
 ## **SDEX Razor Tools - Product List**
