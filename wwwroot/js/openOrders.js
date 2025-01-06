@@ -1,19 +1,8 @@
-﻿        //const { Asset, Server, Keypair, TransactionBuilder, Operation, BASE_FEE } = StellarSdk;
 
 
+const message = document.getElementById("message");
+const ordersTable = document.getElementById("ordersTable");
 
-        //const secretKey = "SCCLB6F75JPT5ZOOD7RKEU66XKVO6ZGKQR5N2SBCYECXPBQGFZRDTFHD"; // Replace with your secret key
-        //const keypair = Keypair.fromSecret(secretKey);
-        //const publicKey = keypair.publicKey();
-
-        const message = document.getElementById("message");
-        const ordersTable = document.getElementById("ordersTable");
-        //const server = new StellarSdk.Horizon.Server('https:horizon.stellar.org');
-        //const NETWORK_PASSPHRASE = "Public Global Stellar Network ; September 2015";
-
-        //Assets for the order book query (XLM/USDC example)
-        //const xlmAsset = StellarSdk.Asset.native();  // XLM asset
-        //const testusdcAsset = new StellarSdk.Asset('USDC', 'GBBD47IF6LWK7P7MDEVSCWR7DPUWV3NY3DTQEVFL4NAT4AQH3ZLLFLA5');  // USDC asset issuer
 
 const { Asset, Server, Keypair, TransactionBuilder, Operation, BASE_FEE, Horizon } = StellarSdk;
 
