@@ -1,4 +1,4 @@
-﻿//const server = new StellarSdk.Horizon.Server('https://horizon-testnet.stellar.org');
+
 const { Asset, Server, Keypair, TransactionBuilder, Operation, BASE_FEE, Horizon } = StellarSdk;
 let baseFee = 100; // Default base fee in stroops (100 stroops = 0.0001 XLM)
 let xlmPriceUSD = 0; // To store the current price of XLM in USD
