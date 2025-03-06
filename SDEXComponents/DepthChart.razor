@@ -1,0 +1,62 @@
+﻿
+<style>
+    .container {
+        padding: 25px;
+        border-radius: 12px;
+        max-width: 1000px;
+        margin: 0 auto;
+    }
+
+    canvas {
+        background: #1e1e1e;
+        border-radius: 8px;
+        padding: 10px;
+    }
+
+    .market-stats {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 15px;
+        margin-bottom: 20px;
+        background: #252a3a;
+        padding: 15px;
+        border-radius: 8px;
+    }
+
+    .stat-item {
+        text-align: center;
+    }
+
+    .stat-label {
+        color: #7f8eaa;
+        font-size: 0.8em;
+        margin-bottom: 5px;
+    }
+
+    .stat-value {
+        font-weight: bold;
+        color: #e0e0e0;
+    }
+
+    .change-up {
+        color: green;
+    }
+
+    .change-down {
+        color: red;
+    }
+
+    .carrot {
+        margin-left: 5px;
+    }
+</style>
+
+<div class="container">
+    <canvas id="depthChart" height="400"></canvas>
+</div>
+
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/stellar-sdk/13.0.0/stellar-sdk.min.js"></script>
+<script src="/js/SDEXScripts/depthChart.js"></script>
+<script src="/js/SDEXScripts/global.js"></script>
