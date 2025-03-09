@@ -1,0 +1,117 @@
+﻿<style>
+
+    h1 {
+        text-align: center;
+        color: #ffcc00;
+    }
+
+    form {
+        display: flex;
+        flex-direction: column;
+    }
+
+    label {
+        margin-bottom: 5px;
+        color: #bbbbbb;
+    }
+
+    input, select, button {
+        margin-bottom: 15px;
+        padding: 10px;
+        border: 1px solid #444;
+        border-radius: 4px;
+        font-size: 16px;
+        background: #333;
+        color: #ffffff;
+    }
+
+    button {
+        background: #ffcc00;
+        color: #000;
+        border: none;
+        cursor: pointer;
+    }
+
+        button:hover {
+            background: #e6b800;
+        }
+
+    #message {
+        text-align: center;
+        color: #ff5555;
+        margin-top: 10px;
+    }
+
+    #currentPrice {
+        text-align: center;
+        color: #00cc99;
+        margin-bottom: 15px;
+    }
+
+    small {
+        font-size: 12px;
+        color: #888;
+    }
+</style>
+
+<div class="container">
+    <h2>Buy | Sell</h2>
+    <form id="offerForm">
+        <label for="asset">Select Asset:</label>
+        <select id="asset" name="asset" required>
+            <option value="XLM">XLM</option>
+            <option value="BTC">Bitcoin</option>
+            <option value="AQUA">Aqua</option>
+            <option value="ETH">Ethereum</option>
+            <option value="VELO">Velo</option>
+        </select>
+
+        <label for="offerType">Offer Type:</label>
+        <select id="offerType" name="offerType" required>
+            <option value="sell">Sell Asset for USDC</option>
+            <option value="buy">Buy Asset with USDC</option>
+        </select>
+
+        <label for="amount">Amount:</label>
+        <input type="number"
+               id="amount"
+               name="amount"
+               placeholder="Amount to trade"
+               step="0.000001"
+               required>
+
+        <label for="price">Price:</label>
+        <input type="number"
+               id="price"
+               name="price"
+               placeholder="Price per asset (USDC/Asset)"
+               step="0.000001"
+               min="0.000001"
+               required>
+        <small>Up to 6 decimal places allowed.</small>
+
+        <label for="secretKey">Your Secret Key:</label>
+        <input type="password" id="secretKey" name="secretKey" placeholder="Your Stellar secret key" required>
+
+        <button type="submit">Submit Offer</button>
+    </form>
+    <p id="message"></p>
+</div>
+
+@code {
+    [Inject] IJSRuntime JS { get; set; }
+
+    protected override async Task OnAfterRenderAsync(bool firstRender)
+    {
+        if (firstRender)
+        {
+            // Call the initializeChart function in the external JavaScript file
+            await JS.InvokeVoidAsync("offerForm");
+        }
+    }
+}
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/stellar-sdk/13.0.0/stellar-sdk.min.js"></script>
+<script src="/js/SDEXScripts/buySell.js"></script>
+<script src="/js/SDEXScripts/global.js"></script>
+

@@ -1,0 +1,67 @@
+﻿@page "/trading-chart"
+@using Microsoft.JSInterop
+
+
+<style>
+    body {
+        margin: 0;
+        font-family: Arial, sans-serif;
+        background: #121212;
+        color: white;
+    }
+
+    .chart-container {
+        width: 100%;
+        height: 600px;
+        position: relative;
+    }
+
+    /* Spinner styles */
+    .loading-container {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        color: white;
+        font-size: 24px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .spinner {
+        border: 4px solid transparent;
+        border-top: 4px solid #fff;
+        border-radius: 50%;
+        width: 30px;
+        height: 30px;
+        margin-right: 10px;
+        /* No keyframes, we will control the rotation with JavaScript */
+    }
+</style>
+
+<div class="loading-container" id="loadingContainer">
+    <div class="spinner" id="spinner"></div> Loading...
+</div>
+
+<div class="chart-container">
+    <div id="tradingChart"></div>
+</div>
+
+@code {
+    [Inject] IJSRuntime JS { get; set; }
+
+    protected override async Task OnAfterRenderAsync(bool firstRender)
+    {
+        if (firstRender)
+        {
+            // Call the initializeChart function in the external JavaScript file
+            await JS.InvokeVoidAsync("initializeChart");
+        }
+    }
+}
+
+<script src="https://cdn.jsdelivr.net/npm/plotly.js-dist@2.19.0/plotly.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/stellar-sdk/13.0.0/stellar-sdk.min.js"></script>
+<script src="/js/SDEXScripts/barChart.js"></script>
+<script src="/js/SDEXScripts/global.js"></script>
