@@ -4,7 +4,7 @@
 		<TargetFramework>net8.0</TargetFramework>
 		<Nullable>enable</Nullable>
 		<ImplicitUsings>enable</ImplicitUsings>
-		<Version>0.0.4</Version>
+		<Version>0.0.5</Version>
 		<GeneratePackageOnBuild>True</GeneratePackageOnBuild>
 		<IsPackable>true</IsPackable>
 		<AddRazorSupportForMvc>true</AddRazorSupportForMvc>
@@ -32,14 +32,17 @@ Summary
 This release represents the pre-release of user interface (UI), Package Information and Fuctioning Mainnet Stellar DEX Components. We will be upgrading versions frequently over the next few weeks as we complete documentation and make improvements.</PackageReleaseNotes>
 		<PackageIcon>PKRZSDEX.png</PackageIcon>
 		<PackageLicenseExpression>MIT</PackageLicenseExpression>
+		<ApplicationIcon>PKRZSDEX.ico</ApplicationIcon>
 	</PropertyGroup>
 
 	<ItemGroup>
-	  <None Include="..\..\..\..\OneDrive\Desktop\SDEXPROJECT\PKRZSDEX.png">
-	    <Pack>True</Pack>
-	    <PackagePath>\</PackagePath>
+	  <Content Include="PKRZSDEX.ico" />
+	</ItemGroup>
+
+	<ItemGroup>
+	  <None Include="README.md" Pack="true" PackagePath="\">
+	    <CopyToOutputDirectory>Always</CopyToOutputDirectory>
 	  </None>
-	  <None Include="C:\Users\inked\source\repos\PSDEXDEMOTEST\PSDEXDEMOTEST\README.md" Pack="true" PackagePath="\" />
 	</ItemGroup>
 
 
@@ -64,6 +67,14 @@ This release represents the pre-release of user interface (UI), Package Informat
 		<Content Update="_Imports.razor">
 			<CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
 		</Content>
+	</ItemGroup>
+
+	<ItemGroup>
+	  <None Update="PKRZSDEX.png">
+	    <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+	    <Pack>True</Pack>
+	    <PackagePath>\</PackagePath>
+	  </None>
 	</ItemGroup>
 
 </Project>

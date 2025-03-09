@@ -1,7 +1,6 @@
 ﻿@page "/trading-chart"
 @using Microsoft.JSInterop
 
-
 <style>
     body {
         margin: 0;
@@ -49,7 +48,7 @@
 </div>
 
 @code {
-    [Inject] IJSRuntime JS { get; set; }
+    [Inject] IJSRuntime JS { get; set; } = null!;
 
     protected override async Task OnAfterRenderAsync(bool firstRender)
     {
